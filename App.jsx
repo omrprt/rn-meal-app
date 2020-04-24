@@ -4,6 +4,7 @@ import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
 
 import MealsNavigator from './navigation/MealsNavigation';
+import { render } from 'react-dom';
 
 const fetchFonts = () => {
   return Font.loadAsync({
