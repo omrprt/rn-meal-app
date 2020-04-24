@@ -13,8 +13,20 @@ const MealsNavigator = (props) => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name='Categories' component={CategoriesScreen} />
-        <Stack.Screen name='Category Meals' component={CategoryMealsScreen} />
-        <Stack.Screen name='Meal Details' component={MealDetailScreen} />
+        <Stack.Screen
+          name='Category Meals'
+          component={CategoryMealsScreen}
+          options={{
+            headerBackTitle: 'back'
+          }}
+        />
+        <Stack.Screen
+          name='Meal Details'
+          component={MealDetailScreen}
+          options={{
+            headerBackTitle: 'back'
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
