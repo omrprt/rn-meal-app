@@ -20,7 +20,12 @@ const CategoryMealScreen = (props) => {
         duration={itemData.item.duration}
         complexity={itemData.item.complexity}
         affordability={itemData.item.affordability}
-        onSelectMeal={() => {}}
+        onSelectMeal={() => {
+          props.navigation.navigate('MealDetails', {
+            mealId: itemData.item.id,
+            mealName: itemData.item.title
+          });
+        }}
       />
     );
   };
@@ -31,7 +36,6 @@ const CategoryMealScreen = (props) => {
         keyExtractor={(item, index) => item.id}
         data={displayMeals}
         renderItem={renderMealItem}
-        //numColumns={2}
         style={{ width: '90%' }}
       />
     </View>

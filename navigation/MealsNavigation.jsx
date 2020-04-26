@@ -1,6 +1,8 @@
 import React from 'react';
+import { Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+//import { HeaderButtons } from 'reactp-native'
 
 import CategoriesScreen from '../screens/CategoriesScreen';
 import CategoryMealsScreen from '../screens/CategoryMealsScreen';
@@ -30,7 +32,14 @@ const MealsNavigator = (props) => {
             headerTitle: props.route.params.categoryName
           })}
         />
-        <Stack.Screen name='Meal Details' component={MealDetailScreen} />
+        <Stack.Screen
+          name='MealDetails'
+          component={MealDetailScreen}
+          options={(props) => ({
+            headerTitle: props.route.params.mealName,
+            headerRight: () => <Text>Fav!</Text>
+          })}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
