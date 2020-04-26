@@ -30,13 +30,7 @@ const MealsNavigator = (props) => {
             headerTitle: props.route.params.categoryName
           })}
         />
-        <Stack.Screen
-          name='Meal Details'
-          component={MealDetailScreen}
-          options={{
-            headerBackTitle: 'back'
-          }}
-        />
+        <Stack.Screen name='Meal Details' component={MealDetailScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
