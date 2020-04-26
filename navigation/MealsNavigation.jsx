@@ -5,20 +5,30 @@ import { createStackNavigator } from '@react-navigation/stack';
 import CategoriesScreen from '../screens/CategoriesScreen';
 import CategoryMealsScreen from '../screens/CategoryMealsScreen';
 import MealDetailScreen from '../screens/MealDetailScreen';
+import Colors from '../constants/Colors';
 
 const Stack = createStackNavigator();
 
 const MealsNavigator = (props) => {
+  console.log('meals Navigation');
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        screenOptions={{
+          headerBackTitle: 'back',
+          headerStyle: {
+            backgroundColor: Colors.primaryColor
+          },
+          headerTintColor: 'white'
+        }}
+      >
         <Stack.Screen name='Categories' component={CategoriesScreen} />
         <Stack.Screen
-          name='Category Meals'
+          name='CategoryMeals'
           component={CategoryMealsScreen}
-          options={{
-            headerBackTitle: 'back'
-          }}
+          options={(props) => ({
+            headerTitle: props.route.params.categoryName
+          })}
         />
         <Stack.Screen
           name='Meal Details'
@@ -31,13 +41,5 @@ const MealsNavigator = (props) => {
     </NavigationContainer>
   );
 };
-
-// const MealsNavigator = createStackNavigator({
-//   Categories: CategoriesScreen,
-//   CategoryMeals: {
-//     screen: CategoryMealsScreen
-//   },
-//   MealDetail: MealDetailScreen
-// });
 
 export default MealsNavigator;
