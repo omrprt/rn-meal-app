@@ -1,18 +1,27 @@
 import React from 'react';
-import { HeaderButton } from 'react-navigation-header-buttons';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 import Colors from '../constants/Colors';
 
 const CustomHeaderButton = (props) => {
   return (
-    <HeaderButton
-      {...props}
-      IconComponent={Ionicons}
-      iconSize={23}
-      color={Colors.primaryColor}
-    />
+    <TouchableOpacity
+      activeOpacity={0.6}
+      onPress={() => {
+        console.log('Mark as favorite!');
+      }}
+    >
+      <View style={styles.button}>{props.children}</View>
+    </TouchableOpacity>
   );
 };
+
+const styles = StyleSheet.create({
+  button: {
+    color: Colors.primaryColor,
+    paddingRight: 10
+  }
+});
 
 export default CustomHeaderButton;

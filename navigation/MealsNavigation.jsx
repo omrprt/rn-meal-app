@@ -1,18 +1,18 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, Button, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-//import { HeaderButtons } from 'reactp-native'
+import { Ionicons } from '@expo/vector-icons';
 
 import CategoriesScreen from '../screens/CategoriesScreen';
 import CategoryMealsScreen from '../screens/CategoryMealsScreen';
 import MealDetailScreen from '../screens/MealDetailScreen';
 import Colors from '../constants/Colors';
+import CustomHeaderButton from '../components/HeaderButton';
 
 const Stack = createStackNavigator();
 
 const MealsNavigator = (props) => {
-  console.log('meals Navigation');
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -37,7 +37,15 @@ const MealsNavigator = (props) => {
           component={MealDetailScreen}
           options={(props) => ({
             headerTitle: props.route.params.mealName,
-            headerRight: () => <Text>Fav!</Text>
+            headerRight: () => (
+              // <Button title='FAV!'>
+              //   <Ionicons name='md-remove' size={23} color='white' />
+              // </Button>
+
+              <CustomHeaderButton>
+                <Ionicons name='ios-star' size={23} color='white' />
+              </CustomHeaderButton>
+            )
           })}
         />
       </Stack.Navigator>
