@@ -13,6 +13,14 @@ import MealDetailScreen from '../screens/MealDetailScreen';
 import Colors from '../constants/Colors';
 import CustomHeaderButton from '../components/HeaderButton';
 
+const defaultStackNavOptions = {
+  headerBackTitle: 'back',
+  headerStyle: {
+    backgroundColor: Colors.primaryColor
+  },
+  headerTintColor: 'white'
+};
+
 const Stack = createStackNavigator();
 // const Tab = createBottomTabNavigator();
 //const Tab = createMaterialBottomTabNavigator();
@@ -58,7 +66,7 @@ const MealsFavTabNavigator = (props) => {
         />
         <Tab.Screen
           name='Favorites'
-          component={FavoritesScreen}
+          component={FavsNavigator}
           options={{
             tabBarLabel: 'Favorites!',
             tabBarColor: Colors.accentColor
@@ -74,15 +82,7 @@ const MealsFavTabNavigator = (props) => {
 
 const MealsNavigator = (props) => {
   return (
-    <Stack.Navigator
-      screenOptions={{
-        headerBackTitle: 'back',
-        headerStyle: {
-          backgroundColor: Colors.primaryColor
-        },
-        headerTintColor: 'white'
-      }}
-    >
+    <Stack.Navigator screenOptions={defaultStackNavOptions}>
       <Stack.Screen name='Categories' component={CategoriesScreen} />
       <Stack.Screen
         name='CategoryMeals'
@@ -106,6 +106,15 @@ const MealsNavigator = (props) => {
           )
         })}
       />
+    </Stack.Navigator>
+  );
+};
+
+const FavsNavigator = (props) => {
+  return (
+    <Stack.Navigator screenOptions={defaultStackNavOptions}>
+      <Stack.Screen name='Favorites' component={FavoritesScreen} />
+      <Stack.Screen name='MealDeails' component={MealDetailScreen} />
     </Stack.Navigator>
   );
 };
