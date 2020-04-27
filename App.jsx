@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
 
-import MealsNavigator from './navigation/MealsNavigation';
+import MealsFavTabNavigator from './navigation/MealsNavigation';
 import { enableScreens } from 'react-native-screens';
 
 enableScreens();
@@ -27,7 +27,7 @@ export default function App() {
     );
   }
 
-  return <MealsNavigator> </MealsNavigator>;
+  return <MealsFavTabNavigator> </MealsFavTabNavigator>;
 }
 
 const styles = StyleSheet.create({
