@@ -19,7 +19,8 @@ const CategoriesScreen = (props) => {
         onSelect={() => {
           props.navigation.navigate('CategoryMeals', {
             categoryID: itemData.item.id,
-            categoryName: itemData.item.title
+            categoryName: itemData.item.title,
+            categoryColor: itemData.item.color
           });
         }}
       />

@@ -50,7 +50,7 @@ const MealsFavTabNavigator = (props) => {
           name='Home'
           component={MealsNavigator}
           options={{
-            tabBarColor: '#694fad'
+            tabBarColor: Colors.primaryColor
             // tabBarIcon: ({ color, size }) => (
             //  <Ionicons name={iconName} size={25} color={color} />
             // ),
@@ -61,7 +61,7 @@ const MealsFavTabNavigator = (props) => {
           component={FavoritesScreen}
           options={{
             tabBarLabel: 'Favorites!',
-            tabBarColor: '#009387'
+            tabBarColor: Colors.accentColor
             // tabBarIcon: ({ color, size }) => (
             //  <Ionicons name={iconName} size={25} color={color} />
             // ),
@@ -88,7 +88,10 @@ const MealsNavigator = (props) => {
         name='CategoryMeals'
         component={CategoryMealsScreen}
         options={(props) => ({
-          headerTitle: props.route.params.categoryName
+          headerTitle: props.route.params.categoryName,
+          headerStyle: {
+            backgroundColor: props.route.params.categoryColor
+          }
         })}
       />
       <Stack.Screen
