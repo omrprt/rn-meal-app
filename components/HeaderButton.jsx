@@ -1,17 +1,11 @@
 import React from 'react';
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
 
 import Colors from '../constants/Colors';
 
 const CustomHeaderButton = (props) => {
   return (
-    <TouchableOpacity
-      activeOpacity={0.6}
-      onPress={() => {
-        console.log('Mark as favorite!');
-      }}
-    >
+    <TouchableOpacity activeOpacity={0.6} onPress={() => {}}>
       <View style={styles.button}>{props.children}</View>
     </TouchableOpacity>
   );
