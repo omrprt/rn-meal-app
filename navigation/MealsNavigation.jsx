@@ -236,7 +236,8 @@ const FilterNavigator = (props) => {
                 size={23}
                 color='white'
                 onPress={() => {
-                  console.log('saving filter', navData.route.params.save());
+                  //console.log('saving filter', navData.route.params.save());
+                  navData.route.params.save();
                 }}
               />
             </CustomHeaderButton>
