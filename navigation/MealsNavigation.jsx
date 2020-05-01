@@ -26,7 +26,8 @@ const defaultStackNavOptions = {
   headerTitleAlign: 'center',
   headerTitleStyle: {
     fontFamily: 'open-sans-bold',
-    alignSelf: 'center'
+    alignSelf: 'center',
+    maxWidth: 250
   },
   headerBackTitleStyle: {
     fontFamily: 'open-sans'
@@ -227,6 +228,18 @@ const FilterNavigator = (props) => {
                 <Ionicons name='ios-menu' size={23} color='white' />
               </View>
             </TouchableOpacity>
+          ),
+          headerRight: () => (
+            <CustomHeaderButton>
+              <Ionicons
+                name='ios-save'
+                size={23}
+                color='white'
+                onPress={() => {
+                  console.log('saving filter');
+                }}
+              />
+            </CustomHeaderButton>
           )
         })}
       />
