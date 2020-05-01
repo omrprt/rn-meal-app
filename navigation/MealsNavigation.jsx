@@ -167,7 +167,15 @@ const MealsNavigator = (props) => {
           headerTitle: props.route.params.mealName,
           headerRight: () => (
             <CustomHeaderButton>
-              <Ionicons name='ios-star' size={23} color='white' />
+              <Ionicons
+                name='ios-star'
+                size={23}
+                color='white'
+                onPress={() => {
+                  console.log('stared', props.route.params.toggleFav);
+                  props.route.params.toggleFav();
+                }}
+              />
             </CustomHeaderButton>
           )
         })}
