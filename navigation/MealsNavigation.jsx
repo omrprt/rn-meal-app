@@ -168,7 +168,9 @@ const MealsNavigator = (props) => {
           headerRight: () => (
             <CustomHeaderButton>
               <Ionicons
-                name='ios-star'
+                name={
+                  props.route.params.isFav ? 'ios-star' : 'ios-star-outline'
+                }
                 size={23}
                 color='white'
                 onPress={() => {
@@ -209,7 +211,28 @@ const FavsNavigator = (props) => {
           )
         })}
       />
-      <FavStack.Screen name='MealDetails' component={MealDetailScreen} />
+      <FavStack.Screen
+        name='MealDetails'
+        component={MealDetailScreen}
+        options={(props) => ({
+          headerTitle: props.route.params.mealName,
+          headerRight: () => (
+            <CustomHeaderButton>
+              <Ionicons
+                name={
+                  props.route.params.isFav ? 'ios-star' : 'ios-star-outline'
+                }
+                size={23}
+                color='white'
+                onPress={() => {
+                  console.log('stared', props.route.params.toggleFav);
+                  props.route.params.toggleFav();
+                }}
+              />
+            </CustomHeaderButton>
+          )
+        })}
+      />
     </FavStack.Navigator>
   );
 };
@@ -252,7 +275,28 @@ const FilterNavigator = (props) => {
           )
         })}
       />
-      <FilterStack.Screen name='MealDetails' component={MealDetailScreen} />
+      <FilterStack.Screen
+        name='MealDetails'
+        component={MealDetailScreen}
+        options={(props) => ({
+          headerTitle: props.route.params.mealName,
+          headerRight: () => (
+            <CustomHeaderButton>
+              <Ionicons
+                name={
+                  props.route.params.isFav ? 'ios-star' : 'ios-star-outline'
+                }
+                size={23}
+                color='white'
+                onPress={() => {
+                  console.log('stared', props.route.params.toggleFav);
+                  props.route.params.toggleFav();
+                }}
+              />
+            </CustomHeaderButton>
+          )
+        })}
+      />
     </FilterStack.Navigator>
   );
 };
